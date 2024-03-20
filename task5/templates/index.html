@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Поисковая система</title>
+</head>
+<body>
+<form method="GET" action="/">
+    <label for="query">Введите запрос</label>
+    <input id="query" type="search" name="q" value="{{q}}">
+    <button type="submit">Найти</button>
+</form>
+{% if result %}
+    <h3>Результат поиска:</h3>
+    {% for item in result %}
+        <p>
+            {{ item.1 }}<br>
+            <a href="{{ item.0 }}">{{ item.0 }}</a>
+        </p>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
