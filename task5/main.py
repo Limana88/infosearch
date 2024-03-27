@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 async def index(request: Request, q: str = ''):
     result = []
     if q:
-        result = vector.search(q)
+        result = vector.search(q)[:10]
     return templates.TemplateResponse('index.html', context={'request': request, 'result': result, 'q': q})
 
 if __name__ == '__main__':
